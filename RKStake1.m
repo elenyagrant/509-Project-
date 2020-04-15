@@ -7,7 +7,7 @@ a = alphaFinder(x,y,w,0.01);
 
 T = linspace(-2,2,1000)';
 
-fhat = exp(1i*T*w)*a;
+fhat = [cos(T*w) sin(T*w)]*a;
 
 figure()
 plot(T,fhat);
