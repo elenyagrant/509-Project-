@@ -6,7 +6,7 @@ med(med == 0) = nan;
 med = array2table(med);
 pTab(1:end,12:end) = med;
 len = size(med,2);
-for i = 1:len
+for i = 1:len-1
 gb = geobubble(pTab,'Lat','Long_','SizeVariable',dates(12+i)); 
 pause(.125);
 end
