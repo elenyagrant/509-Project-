@@ -34,10 +34,8 @@ n_days = size(y,2);
 %% fit a spatial model for each day.
 A = zeros(n_days, 2*nSpace_features+1); % i^th row is the coefficients for the spatial model at i^th day.
 wSpace = randPicker(kernel_param, dim, nSpace_features); % random RKS parameter for the spatial model
-for i=1:n_days
-    [a,b] = alphaFinder(x,y(:,i),wSpace,ridge_param);
-    A(i,:) = [b, a'];
-end
+[A, b] = alphaFinder(x,y,wSpace,ridge_param);
+A = [b', A'];
 
 %% produce time series table.
 [X,Y] = time_series_xy(A, window_size);
