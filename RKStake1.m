@@ -1,3 +1,8 @@
+%%
+%The following shows the use of RKS to perform linear least squares
+%analysis on a noisy signal. The actual RKS part of the analysis takes
+%place primarily in the alphaFinder function.
+
 x = rand(100,1);
 y = tanh(4*x-2)+.2*randn(100,1);
 
